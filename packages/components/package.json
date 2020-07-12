@@ -1,6 +1,21 @@
 {
   "name": "@lunax/components",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "clean": "rimraf -rf ./build",
+    "compile": "tsc -p tsconfig.json",
+    "prepublishOnly": "yarn build"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.6"
+  }
 }
